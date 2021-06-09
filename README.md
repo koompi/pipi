@@ -8,7 +8,7 @@ TODO
 	2. Example: pipi (file that contain the packages)
 	3. install the require dependencies, Example: xorriso
 	4. when run pipi:
-		1. Go check whether pi is already installed or not. Install it if it is not yet install
+		1. Go check whether pi is already installed or not. Install it if it is [not](not) yet install
 
 2. Make command line application or maybe GUI
 
