@@ -33,4 +33,28 @@ pub fn cmd_args<'a, 'b>() -> App<'a, 'b> {
                 .takes_value(true)
                 .multiple(true),
         )
+        .arg(
+            Arg::with_name("build")
+                .help("Build rootfs")
+                .short("b")
+                .long("build")
+                // .takes_value(true)
+                // .multiple(true),
+        )
+        // .arg(
+        //     Arg::with_name("iso")
+        //         .help("generate iso")
+        //         .short("i")
+        //         .long("iso")
+        //         .takes_value(true)
+        //         .multiple(true),
+        // )
+        // .arg(
+        //     Arg::with_name("rootfs")
+        //         .help("generate rootfs")
+        //         .short("rf")
+        //         .long("rootfs")
+        //         .takes_value(true)
+        //         .multiple(true),
+        // )
 }

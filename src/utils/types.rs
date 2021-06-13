@@ -3,12 +3,6 @@
 // use clap::Error;
 use serde_derive::{Deserialize, Serialize};
 
-// #[derive(Debug, Serialize, Deserialize)]
-// pub struct Response<T> {
-//     pub data: Option<T>,
-//     pub errors: Option<Error>,
-// }
-
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Version {
     version: String,
@@ -48,4 +42,7 @@ pub enum Operation {
     Add,
     Remove,
     Help,
+    Build,
+    Iso,
+    Rootfs,
 }
