@@ -8,15 +8,15 @@ TODO
 	- Example: pipi (file that contain the packages)
 	- install the require dependencies, Example: xorriso
 	- when run pipi:
-		- Go check whether pi is already installed or not. Install it if it is [not](not) yet install
-
+		- Go check whether pi is already installed or not. Install it if it is not yet install
 2. Make command line application or maybe GUI
 
 
 Features:
+- Able to build KOOMPI root
 - Able to generate ISO
-- Able to generate Rootfs
-- Able to add or remove package from the submodule repo of the packages repo.
+- Able to generate Rootfs compression
+- Able to add or remove package after working on new port from the submodule repo of the packages repo.
 
 
 # Features
