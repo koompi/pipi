@@ -1,12 +1,13 @@
 pub mod utils;
+use nix::unistd::Uid;
+use std::env;
+use std::ffi::OsStr;
+use std::fs;
+use std::path::Path;
 use std::process::Command;
 use utils::*;
-use std::ffi::OsStr;
-use std::env;
-use std::fs;
 
-// fn main() -> Result<(), anyhow::Error> {
-fn main () {
+fn main() {
     // download_pi();
     let pipi = cmd_args();
     let matches = pipi.clone().get_matches();
@@ -25,6 +26,9 @@ fn main () {
     // Bind each operation variants to operation functions
     match op {
         Operation::Add => {
+            if !Uid::effective().is_root() {
+                panic!("You need sudo permission to run use this feature");
+            }
             let args_list = matches.values_of("add").unwrap().collect::<Vec<_>>();
             let mut add_list: Vec<String> = Vec::new();
             args_list
@@ -38,10 +42,12 @@ fn main () {
                 .spawn()
                 .ok()
                 .expect("Failed to execute.");
-
         }
 
         Operation::Remove => {
+            if !Uid::effective().is_root() {
+                panic!("You need sudo permission to run use this feature");
+            }
             let args_list = matches.values_of("remove").unwrap().collect::<Vec<_>>();
             let mut remove_list: Vec<String> = args_list
                 .iter()
@@ -74,36 +80,21 @@ fn main () {
                 .spawn()
                 .ok()
                 .expect("Failed to execute.");
-            }
+        }
 
         _ => {
-            let helper = pipi.clone().print_help();
-            helper.unwrap();
-            println!();
+            if !Uid::effective().is_root() {
+                panic!("You need sudo permission to run use this feature");
+            }
+
+            let pi_exist = Path::new("/usr/bin/pi").exists();
+            if pi_exist == true {
+                let helper = pipi.clone().print_help();
+                helper.unwrap();
+                println!();
+            } else {
+                download_pi();
+            }
         }
     }
 }
-
-
-
-        // Operation::Remove => {
-        //     let args_list = matches.values_of("remove").unwrap().collect::<Vec<_>>();
-        //     let remove_list: Vec<String> = args_list
-        //         .iter()
-        //         .map(|arg| arg.clone().to_string())
-        //         .collect();
-        //     let the_process = Command::new("bin-repo")
-        //         .arg("remove")
-        //         .arg("/var/www/core/core.db")
-        //         .args(remove_list)
-        //         .spawn()
-        //         .ok()
-        //         .expect("Failed to execute.");
-
-        // _ => {
-        //     let helper = pipi.clone().print_help();
-        //     helper.unwrap();
-        //     println!();
-        // }
-
-    // Ok(())

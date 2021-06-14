@@ -17,3 +17,9 @@ Features:
 . Able to generate ISO
 . Able to generate Rootfs
 . Able to add or remove package from the submodule repo of the packages repo.
+
+
+# Features
+run pipi --build to start building the rootfs by provide a file that contain packages with the file name of packages
+run pipi --add (the app name that you want to addd into the repo)
+run pipi --remove (the app name that you remove from the repo)
