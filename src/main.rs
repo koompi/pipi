@@ -19,6 +19,8 @@ fn main() {
         Operation::Remove
     } else if matches.is_present("build") {
         Operation::Build
+    } else if matches.is_present("update") {
+        Operation::Update
     } else {
         Operation::Help
     };
@@ -88,6 +90,14 @@ fn main() {
                 .arg("pi")
                 .arg("install")
                 .arg(build_list)
+                .spawn()
+                .ok()
+                .expect("Failed to execute.");
+        }
+
+        Operation::Update => {
+            let _the_process = Command::new("pi")
+                .arg("-u")
                 .spawn()
                 .ok()
                 .expect("Failed to execute.");

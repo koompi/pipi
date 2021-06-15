@@ -45,4 +45,5 @@ pub enum Operation {
     Build,
     Iso,
     Rootfs,
+    Update,
 }
