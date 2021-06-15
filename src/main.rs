@@ -73,8 +73,19 @@ fn main() {
             }
 
             // example: env rootfs=pi install (packages)
+
+            // let _the_process = Command::new("pi")
+            //     .env("ROOT_DIR", "rootfs")
+            //     .arg("install")
+            //     .arg(build_list)
+            //     .spawn()
+            //     .ok()
+            //     .expect("Failed to execute.");
+
             let _the_process = Command::new("env")
-                .arg("rootfs=pi")
+                // .env("ROOT_DIR", "rootfs")
+                .arg("ROOT=rootfs")
+                .arg("pi")
                 .arg("install")
                 .arg(build_list)
                 .spawn()
@@ -83,9 +94,9 @@ fn main() {
         }
 
         _ => {
-            if !Uid::effective().is_root() {
-                panic!("You need sudo permission to run use this feature");
-            }
+            // if !Uid::effective().is_root() {
+            //     panic!("You need sudo permission to run use this feature");
+            // }
 
             let pi_exist = Path::new("/usr/bin/pi").exists();
             if pi_exist == true {
@@ -94,6 +105,9 @@ fn main() {
                 println!();
             } else {
                 download_pi();
+                let helper = pipi.clone().print_help();
+                helper.unwrap();
+                println!();
             }
         }
     }
