@@ -19,7 +19,7 @@ You can find an overview over the features available in pipi [here](./docs/featu
 
 1. `git clone https://github.com/koompi/pipi`
 2. `cd pipi`
-3. `sudo chmod +x build.sh`
+3. `chmod +x build.sh`
 4. `./build.sh`
 
 ### Requirements
