@@ -1,25 +1,32 @@
-# pipi
-KOOMPI ISO BUILD TOOL
-
-TODO
-
-1. Build KOOMPI OS Build Tool using PI (Package Manager) using Programming Language Rust.
-	- we can use a file that contain a list of packages for making the ISO.
-	- Example: pipi (file that contain the packages)
-	- install the require dependencies, Example: xorriso
-	- when run pipi:
-		- Go check whether pi is already installed or not. Install it if it is not yet install
-2. Make command line application or maybe GUI
+<h1 align="center">Pipi - A wrapper, convenience, straightforward application in Rust</h1>
 
 
-Features:
-- Able to build KOOMPI root
-- Able to generate ISO
-- Able to generate Rootfs compression
-- Able to add or remove package after working on new port from the submodule repo of the packages repo.
+## About
+Pipi is a modern application which served it purpose of making KOOMPI OS From Scratch. By intergrating with Pi Package Manager, or wrapping with high performance.
+
+The software is considered to be at a **beta** level of readiness; there are
+a few missing features and bugs to be fixed, but it is already used by KOOMPI developer as a daily driver.
+
+Precompiled binaries are available from the [GitHub releases page](https://github.com/pipi/pipi/releases).
 
 
-# Features
-1. run pipi --build to start building the rootfs by provide a file that contain packages with the file name of packages
-2. run pipi --add (the app name that you want to add into the repo)
-3. run pipi --remove (the app name that you remove from the repo)
+## Features
+
+You can find an overview over the features available in pipi [here](./docs/features.md).
+
+
+## Installation
+
+1. `git clone https://github.com/koompi/pipi`
+2. `cd pipi`
+3. `sudo chmod +x build.sh`
+4. `./build.sh`
+
+### Requirements
+
+- Linux that run musl libc
+- Rustlang
+
+## Configuration
+
+`todo!`

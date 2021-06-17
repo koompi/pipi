@@ -85,11 +85,6 @@ fn main() {
                 .expect("Failed to execute.");
         }
 
-
-
-
-        }
-
         Operation::Build => {
             let file = fs::read_to_string("packages").expect("Something wrong");
             let mut package = vec![file];
