@@ -2,9 +2,9 @@
 1. chmod +x build.sh
 2. ./build.sh
 3. change store.conf in etc to 0.0.0.0:3690
-4. sudo bin-repo create /var/www/core/core.db
+4. pipi --create /var/www/core/core.db
 5. sudo server -g &
-6. to build packages use: pipi -b
+6. to build packages rootfs use: pipi -b (don't forget file contain packages and name it packages)
 7. to add new package in repo: pipi -a *.app
 8. to remove package in repo: pipi -r package name(without extension)
 9. to update the db use: pipi -u
