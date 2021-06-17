@@ -17,6 +17,8 @@ fn main() {
         Operation::Add
     } else if matches.is_present("remove") {
         Operation::Remove
+    } else if matches.is_present("create") {
+        Operation::Create
     } else if matches.is_present("build") {
         Operation::Build
     } else if matches.is_present("update") {
@@ -62,6 +64,30 @@ fn main() {
                 .spawn()
                 .ok()
                 .expect("Failed to execute.");
+        }
+
+        Operation::Create => {
+            if !Uid::effective().is_root() {
+                panic!("You need sudo to run this feature");
+            }
+
+            let args_list = matches.values_of("create").unwrap().collect::<Vec<_>>();
+            let mut db_path: Vec<String> = args_list
+                .iter()
+                .map(|arg| arg.clone().to_string())
+                .collect();
+
+            let _the_process = Command::new("bin-repo")
+                .arg("create")
+                .args(db_path)
+                .spawn()
+                .ok()
+                .expect("Failed to execute.");
+        }
+
+
+
+
         }
 
         Operation::Build => {

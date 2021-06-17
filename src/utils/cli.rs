@@ -49,12 +49,12 @@ pub fn cmd_args<'a, 'b>() -> App<'a, 'b> {
             // .takes_value(true)
             // .multiple(true),
     )
-    // .arg(
-    //     Arg::with_name("rootfs")
-    //         .help("generate rootfs")
-    //         .short("rf")
-    //         .long("rootfs")
-    //         .takes_value(true)
-    //         .multiple(true),
-    // )
+    .arg(
+        Arg::with_name("create")
+            .help("Create database")
+            .short("c")
+            .long("create")
+            .takes_value(true)
+            .multiple(true),
+    )
 }

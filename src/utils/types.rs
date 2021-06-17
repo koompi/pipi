@@ -43,6 +43,7 @@ pub enum Operation {
     Remove,
     Help,
     Build,
+    Create,
     Iso,
     Rootfs,
     Update,
