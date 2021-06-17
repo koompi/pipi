@@ -1,8 +1,8 @@
 <h1 align="Center">  Pipi's Features
 
-<h3 align="center">This document gives an overiew over Pipi's features.</h1>
+<h3 align="center">This document gives an overview over Pipi's features.</h1>
 
-#### --add 
+#### --add
 
 `The --add argument allows devs to add new package or *.app into the repository.`
 
@@ -34,7 +34,7 @@ pipi@KOOMPI:~$ sudo pipi --update
 
 #### --build
 
-`The --build argument allow devs to build rootfs` 
+`The --build argument allow devs to build rootfs`
 
 ##### Usage
 
