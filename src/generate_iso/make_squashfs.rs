@@ -10,11 +10,10 @@ pub fn squashfs() {
 	    	-b 1048576 -comp zstd \
 	    	-e rootfs/tmp/* 2>/dev/null
         "#
-        )
-        .unwrap();
+    )
+    .unwrap();
 
     println!("Exit Code: {}", code);
     println!("Output: {}", output);
     println!("Error: {}", error);
-
 }

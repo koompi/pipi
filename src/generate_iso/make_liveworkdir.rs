@@ -1,7 +1,6 @@
 pub use run_script::{run_script, ScriptOptions};
 
 pub fn liveworkdir() {
-
     println!("Preparing iso workdir....");
 
     let (code, output, error) = run_script::run_script!(

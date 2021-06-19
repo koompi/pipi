@@ -4,7 +4,7 @@ pub fn iso() {
     println!("Making KOOMPI's iso...");
 
     let (code, output, error) = run_script::run_script!(
-            r#"
+        r#"
 	    rm -f koompilive.iso
 	    xorriso -as mkisofs \
 	    	  -isohybrid-mbr files/isohdpfx.bin \
@@ -20,8 +20,8 @@ pub fn iso() {
 	    	  -volid KOOMPILIVE \
 	    	-o koompilive.iso work/live
         "#
-        )
-        .unwrap();
+    )
+    .unwrap();
 
     println!("Exit Code: {}", code);
     println!("Output: {}", output);

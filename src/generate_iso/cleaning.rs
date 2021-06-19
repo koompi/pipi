@@ -6,5 +6,4 @@ pub fn cleaning() -> std::io::Result<()> {
     fs::remove_dir("work/live")?;
 
     Ok(())
-
 }

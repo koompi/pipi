@@ -38,10 +38,10 @@ pub fn efiboot() {
     unmount work/live/efiboot
     rm -fr work/live/efiboot
         "#
-        )
-        .unwrap();
+    )
+    .unwrap();
 
-        println!("Exit Code: {}", code);
-        println!("Output: {}", output);
-        println!("Error: {}", error);
+    println!("Exit Code: {}", code);
+    println!("Output: {}", output);
+    println!("Error: {}", error);
 }

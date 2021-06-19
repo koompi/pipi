@@ -1,16 +1,14 @@
-pub mod utils;
 pub mod generate_iso;
-
+pub mod utils;
 
 use nix::unistd::Uid;
 // use std::env;
 // use std::ffi::OsStr;
+use generate_iso::make_livecd::livecd;
 use std::fs;
 use std::path::Path;
 use std::process::Command;
 use utils::*;
-use generate_iso::make_livecd::livecd;
-
 
 fn main() {
     // download_pi();
