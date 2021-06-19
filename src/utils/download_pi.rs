@@ -53,7 +53,7 @@ pub fn download_pi() {
          sudo install -Dm755 target/release/server /usr/bin/server
          sudo install -Dm755 target/release/source-repo /usr/bin/source-repo
          sudo cp files/xchroot /bin
-         cp -r ../../pipi-live /opt/
+         sudo cp -r ../../pipi-live /opt/
          "#
     )
     .unwrap();
