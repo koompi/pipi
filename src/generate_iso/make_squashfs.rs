@@ -6,9 +6,9 @@ pub fn squashfs() {
     let (code, output, error) = run_script::run_script!(
         r#"
         source config
-	    mksquashfs $ROOTFS "$LIVEWDIR"/koompi/rootfs.sfs \
+	    mksquashfs rootfs work/live/koompi/rootfs.sfs \
 	    	-b 1048576 -comp zstd \
-	    	-e $ROOTFS/tmp/* 2>/dev/null
+	    	-e rootfs/tmp/* 2>/dev/null
         "#
         )
         .unwrap();

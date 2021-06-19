@@ -7,15 +7,15 @@ pub fn initramfs() {
         r#"
     source config
     chroot_run() {
-        xchroot $ROOTFS $@
+        xchroot rootfs $@
         return $?
 
     }
-	sed "s/@ISOLABEL@/$ISOLABEL/g" "$FILESDIR"/livecd.hook > $ROOTFS/usr/share/mkinitramfs/hooks/livecd.hook
-	cp $ROOTFS/boot/vmlinuz-koompi "$LIVEWDIR"/boot/vmlinuz
-	kernver=$(file $ROOTFS/boot/vmlinuz-koompi | cut -d ' ' -f9)
+	sed "s/@ISOLABEL@/KOOMPILIVE/g" files/livecd.hook > rootfs/usr/share/mkinitramfs/hooks/livecd.hook
+	cp rootfs/boot/vmlinuz-koompi work/live/boot/vmlinuz
+	kernver=$(file rootfs/boot/vmlinuz-koompi | cut -d ' ' -f9)
 	chroot_run mkinitramfs -k $kernver -a livecd -o /boot/initrd-koompi.img
-	mv $ROOTFS/boot/initrd-koompi.img "$LIVEWDIR"/boot/initrd
+	mv rootfs/boot/initrd-koompi.img work/live/boot/initrd
 
     "#
     )

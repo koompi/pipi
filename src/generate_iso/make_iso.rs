@@ -5,10 +5,9 @@ pub fn iso() {
 
     let (code, output, error) = run_script::run_script!(
             r#"
-        source config
-	    rm -f $OUTPUT
+	    rm -f koompilive.iso
 	    xorriso -as mkisofs \
-	    	  -isohybrid-mbr "$FILESDIR"/isohdpfx.bin \
+	    	  -isohybrid-mbr files/isohdpfx.bin \
 	    	-c isolinux/boot.cat \
 	    	-b isolinux/isolinux.bin \
 	    	  -no-emul-boot \
@@ -18,8 +17,8 @@ pub fn iso() {
 	    	-e boot/efiboot.img \
 	    	  -no-emul-boot \
 	    	  -isohybrid-gpt-basdat \
-	    	  -volid $ISOLABEL \
-	    	-o $OUTPUT $LIVEWDIR
+	    	  -volid KOOMPILIVE \
+	    	-o koompilive.iso work/live
         "#
         )
         .unwrap();

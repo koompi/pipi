@@ -5,11 +5,6 @@ pub use crate::{generate_iso::{make_efiboot, make_initramfs, make_iso, make_live
 pub fn livecd() {
     println!("Building livecd....");
 
-    Command::new("set")
-            .arg("-e")
-            .spawn()
-            .expect("set -e failed to execute");
-
 
     liveworkdir();
     initramfs();
@@ -18,8 +13,4 @@ pub fn livecd() {
     iso();
     cleaning();
 
-    Command::new("set")
-    .arg("-e")
-    .spawn()
-    .expect("set -e failed to execute");
 }
