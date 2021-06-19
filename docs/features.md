@@ -2,6 +2,16 @@
 
 <h3 align="center">This document gives an overview over Pipi's features.</h1>
 
+#### --new
+
+`The --new argument allows devs to create new projects for new version`
+
+##### Usage
+
+```console
+pipi@KOOMPI:~$ pipi --new v0.0.1
+```
+
 #### --add
 
 `The --add argument allows devs to add new package or *.app into the repository.`
@@ -34,7 +44,7 @@ pipi@KOOMPI:~$ sudo pipi --update
 
 #### --build
 
-`The --build argument allow devs to build rootfs`
+`The --build argument allows devs to build rootfs`
 
 ##### Usage
 
@@ -45,7 +55,7 @@ pipi@KOOMPI:~$ pipi --build
 
 ### --iso
 
-`todo!`
+`The --iso argument allows devs to generate KOOMPI's iso file`
 
 #### Usage
 
