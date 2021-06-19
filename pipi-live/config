@@ -1,0 +1,17 @@
+# live iso
+export ISOLABEL="KOOMPILIVE"
+export OUTPUT="koompilive.iso"
+export LIVEWDIR="$BUILDDIR/live"
+export FILESDIR="$BUILDROOT/files"
+export EFIBOOTDIR="$BUILDDIR/efiboot"
+
+export BUILDROOT=$(pwd)
+export TCDIR="$BUILDROOT/toolchain"
+export SRCDIR="${SRCDIR:-$BUILDROOT/sources}"
+export PKGDIR="${PKGDIR:-$BUILDROOT/packages}"
+export PORTSDIR="$BUILDROOT/ports"
+export BUILDDIR="$BUILDROOT/work"
+export ROOTFS="${ROOTFS:-$BUILDROOT/rootfs}"
+export TCSCRIPTDIR="$BUILDROOT/tcscripts"
+export PKGBUILDCONF="${PKGBUILDCONF:-$BUILDROOT/pkgbuild.conf}"
+export JOBS="${JOBS:-$(nproc)}"

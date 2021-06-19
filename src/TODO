@@ -1,0 +1,27 @@
+// For generate KOOMPI ISO
+[x] Add --iso features
+	[x] liveworkdir
+	[x] initramfs
+	[x] squashfs
+	[x] efiboot
+	[x] gen_iso
+
+// For creating new version of iso
+[x ] Add --new features
+	[x] generate new folder, eg: v0.0.1
+	[x] copy {boot, files, liverootfs} dirs from backup(host it somewhere: eg: /opt/pipi-live
+
+Example of Directory's Tree:
+|---- v0.0.1
+|	|
+|	|--- rootfs
+|	|--- packages
+|	|--- files
+|	|--- liverootfs
+|	|
+|	|
+|	|_________________________
+|
+|_________________________________
+|
+|_________________________________

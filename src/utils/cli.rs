@@ -57,4 +57,20 @@ pub fn cmd_args<'a, 'b>() -> App<'a, 'b> {
             .takes_value(true)
             .multiple(true),
     )
+    .arg(
+        Arg::with_name("new")
+            .help("create working directory")
+            .short("n")
+            .long("new")
+            .takes_value(true)
+            .multiple(true),
+    )
+    .arg(
+        Arg::with_name("iso")
+            .help("Generate KOOMPI's ISO")
+            .short("i")
+            .long("iso")
+            // .takes_value(true)
+            // .multiple(true),
+    )
 }

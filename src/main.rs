@@ -1,11 +1,16 @@
 pub mod utils;
+pub mod generate_iso;
+
+
 use nix::unistd::Uid;
-use std::env;
-use std::ffi::OsStr;
+// use std::env;
+// use std::ffi::OsStr;
 use std::fs;
 use std::path::Path;
 use std::process::Command;
 use utils::*;
+use generate_iso::make_livecd::livecd;
+
 
 fn main() {
     // download_pi();
@@ -23,6 +28,10 @@ fn main() {
         Operation::Build
     } else if matches.is_present("update") {
         Operation::Update
+    } else if matches.is_present("new") {
+        Operation::New
+    } else if matches.is_present("iso") {
+        Operation::Iso
     } else {
         Operation::Help
     };
@@ -97,14 +106,6 @@ fn main() {
 
             // example: env rootfs=pi install (packages)
 
-            // let _the_process = Command::new("pi")
-            //     .env("ROOT_DIR", "rootfs")
-            //     .arg("install")
-            //     .arg(build_list)
-            //     .spawn()
-            //     .ok()
-            //     .expect("Failed to execute.");
-
             let _the_process = Command::new("env")
                 // .env("ROOT_DIR", "rootfs")
                 .arg("ROOT=rootfs")
@@ -122,6 +123,28 @@ fn main() {
                 .spawn()
                 .ok()
                 .expect("Failed to execute.");
+        }
+
+        Operation::New => {
+            let args_list = matches.value_of("new").unwrap();
+
+            if Path::new(&args_list).exists() {
+                println!("Failed to create new projects, project name already exists");
+            } else {
+                let _copy_files = Command::new("cp")
+                    .arg("-r")
+                    .arg("/opt/pipi-live")
+                    .arg(&args_list)
+                    .spawn()
+                    .ok()
+                    .expect("Failed to execute.");
+
+                println!("Successfully create new project");
+            }
+        }
+
+        Operation::Iso => {
+            livecd();
         }
 
         _ => {
