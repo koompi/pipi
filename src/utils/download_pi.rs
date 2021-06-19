@@ -28,6 +28,7 @@ pub fn download_pi() {
          sudo install -Dm755 target/release/server /usr/bin/server
          sudo install -Dm755 target/release/source-repo /usr/bin/source-repo
          sudo cp files/xchroot /bin
+         sudo git clone https:/github.com/koompi/pipi-live /opt/
          "#
         )
         .unwrap();
@@ -53,7 +54,7 @@ pub fn download_pi() {
          sudo install -Dm755 target/release/server /usr/bin/server
          sudo install -Dm755 target/release/source-repo /usr/bin/source-repo
          sudo cp files/xchroot /bin
-         sudo cp -r ../../pipi-live /opt/
+         sudo git clone https:/github.com/koompi/pipi-live /opt/
          "#
     )
     .unwrap();
