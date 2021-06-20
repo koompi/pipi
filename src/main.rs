@@ -95,11 +95,12 @@ fn main() {
         Operation::Build => {
             let file = fs::read_to_string("packages").expect("Something wrong");
             let mut package = vec![file];
-            let mut build_list = String::new();
+            let mut build_list = Vec::new();
 
             for fi in package.iter_mut() {
-                *fi = fi.trim().replace("\n", " ").to_string();
-                build_list = fi.to_string();
+                // *fi = fi.trim().replace("\n", " ");
+                *fi = fi.replace("\n", " ");
+                build_list = vec![fi];
             }
 
             // example: env rootfs=pi install (packages)
@@ -109,7 +110,7 @@ fn main() {
                 .arg("ROOT=rootfs")
                 .arg("pi")
                 .arg("install")
-                .arg(build_list)
+                .args(build_list)
                 .spawn()
                 .ok()
                 .expect("Failed to execute.");
