@@ -143,6 +143,9 @@ fn main() {
         }
 
         Operation::Iso => {
+            if !Uid::effective().is_root() {
+                panic!("You need sudo permission to run use this feature");
+            }
             livecd();
         }
 
