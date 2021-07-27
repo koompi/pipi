@@ -9,6 +9,7 @@ use std::fs;
 use std::path::Path;
 use std::process::Command;
 use utils::*;
+use std::io::prelude::*;
 
 fn main() {
     // download_pi();
@@ -93,24 +94,31 @@ fn main() {
         }
 
         Operation::Build => {
-            let file = fs::read_to_string("packages").expect("Something wrong");
-            let mut package = vec![file];
-            let mut build_list = Vec::new();
+            // let file = fs::read_to_string("packages").expect("Something wrong");
+            // let mut packages: Vec<String> = file.lines().map(|p|p.to_string()).collect();
+            // let mut build_list = Vec::new();
 
-            for fi in package.iter_mut() {
-                // *fi = fi.trim().replace("\n", " ");
-                *fi = fi.replace("\n", " ");
-                build_list = vec![fi];
-            }
+            // for fi in packages.iter_mut() {
+            //     // *fi = fi.trim().replace("\n", " ");
+            //     *fi = fi.replace("\n", " ");
+            //     // build_list = vec![fi];
+            //     println!("{:?}", build_list);
+            // }
+
+            // println!("{:?}", packages);
 
             // example: env rootfs=pi install (packages)
+            let mut data = String::new();
+            let mut file = fs::File::open("packages").unwrap();
+            file.read_to_string(&mut data).unwrap();
+            let packages: Vec<String> = data.lines().map(|l| l.to_string()).collect();
 
             let _the_process = Command::new("env")
                 // .env("ROOT_DIR", "rootfs")
                 .arg("ROOT=rootfs")
                 .arg("pi")
                 .arg("install")
-                .args(build_list)
+                .args(&packages)
                 .spawn()
                 .ok()
                 .expect("Failed to execute.");
